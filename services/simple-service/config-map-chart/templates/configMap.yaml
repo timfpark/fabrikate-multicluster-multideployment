@@ -4,4 +4,4 @@ metadata:
   name: simple-service-configmap
   namespace: services
 data:
-    COSMOSDB_ENDPOINT: {{ .Values.cosmosDbEndpoint }}
+    STORAGE_ACCOUNT: {{ .Values.storageAccount }}

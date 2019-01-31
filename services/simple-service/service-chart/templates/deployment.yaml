@@ -31,8 +31,8 @@ spec:
         - containerPort: 80
           protocol: TCP
         env:
-        - name: COSMOSDB_ENDPOINT
+        - name: STORAGE_ACCOUNT
           valueFrom:
             configMapKeyRef:
               name: {{ .Values.serviceName }}-configmap
-              key: COSMOSDB_ENDPOINT
+              key: STORAGE_ACCOUNT

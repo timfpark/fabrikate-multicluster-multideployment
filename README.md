@@ -15,7 +15,9 @@ Alternatively, you can generate each environment one by one and checking it into
 ## Example
 
 ```
+$ fab install
 $ fab generate prod-east
+$ fab install
 $ fab generate prod-west
 ```
 
@@ -24,19 +26,47 @@ which generates:
 ```
 generated
     prod-east
-        elasticsearch-fluentd-kibana
-        prometheus-grafana
+        cloud-native
         services
             simple-service
+                routing
                 canary
                 stable
     prod-west
-        canary
-            manifests
-                simple-service
-        stable
-            manifests
-                simple-service
+       cloud-native
+        services
+            simple-service
+                routing
+                canary
+                stable
+```
+
+Looking at `generated/prod-west/services/simple-service/simple-service.yaml` we see it has the west storage account:
+
+```
+---
+# Source: config-map/templates/configMap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: simple-service-configmap
+  namespace: services
+data:
+    STORAGE_ACCOUNT: west-storage
+```
+
+while `generated/prod-east/services/simple-service/simple-service.yaml` has the east storage account:
+
+```
+---
+# Source: config-map/templates/configMap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: simple-service-configmap
+  namespace: services
+data:
+    STORAGE_ACCOUNT: east-storage
 ```
 
 ## Background

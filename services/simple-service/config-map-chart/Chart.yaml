@@ -2,7 +2,7 @@ name: config-map
 description: ConfigMap generator
 version: 0.1.0
 sources:
-- https://github.com/timfpark/fabrikate-multicluster
+- https://github.com/timfpark/fabrikate-multicluster-multideployment
 maintainers:
 - name: timfpark
   email: timfpark@gmail.com

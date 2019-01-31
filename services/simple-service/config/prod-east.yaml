@@ -1,2 +1,2 @@
 config:
-  cosmosDbEndpoint: "east"
+  storageAccount: "east-storage"
