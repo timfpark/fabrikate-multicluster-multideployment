@@ -1,0 +1,4 @@
+namespace: services
+serviceName: simple-service
+imagePullPolicy: "Always"
+imagePullSecrets: acr-tpark

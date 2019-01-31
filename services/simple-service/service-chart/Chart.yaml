@@ -1,0 +1,8 @@
+name: simple-service
+description: Fabrikate web api template
+version: 0.1.0
+sources:
+- https://github.com/timfpark/fabrikate-multicluster
+maintainers:
+- name: timfpark
+  email: timfpark@gmail.com

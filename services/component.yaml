@@ -1,0 +1,4 @@
+name: "services"
+subcomponents:
+- name: "simple-service"
+  source: "./simple-service"

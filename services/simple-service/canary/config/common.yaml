@@ -1,0 +1,4 @@
+config:
+  image: "tpark.azurecr.io/tpark/simple-service:20181118T195312Z"
+  replicas: 1
+  version: canary
