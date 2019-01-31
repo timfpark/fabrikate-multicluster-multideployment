@@ -4,7 +4,7 @@ A prototype for how a multi-cluster deployment of a set of microservices (only o
 
 ## Design
 
-The services directory houses all of the high level deployment definitions for a set of microservices.  Within each service, the top level component establishes the global routing rules between deployments of the service in `routing` (90% stable, 10% canary in this example), and then defines one or more deployments.  In this case there are two, `canary` and `stable`, which utilize a common chart (in `./service-chart`).  The top level service component also defines a common ConfigMap for the two underlying deployments, the assumption here being that the config applied to `canary` and `stable` is invariant within a particular cluster deployment (ie. `prod-east` or `prod-west`).
+The services directory houses all of the high level deployment definitions for a set of microservices.  Within each service, the top level component establishes the global routing rules between deployments of the service in `service-chart` (90% stable, 10% canary in this example), and then defines one or more deployments.  In this case there are two, `canary` and `stable`, which utilize a common chart (in `./deployment-chart`).  The top level service chart also defines a common ConfigMap for the two underlying deployments, the assumption here being that the config applied to `canary` and `stable` is invariant within a particular cluster deployment (ie. `prod-east` or `prod-west`).
 
 ## Generation
 
@@ -27,16 +27,22 @@ which generates:
 generated
     prod-east
         cloud-native
+            elasticsearch-fluentd-kibana
+            istio
+            kured
+            prometheus-grafana
         services
             simple-service
-                routing
                 canary
                 stable
     prod-west
-       cloud-native
+        cloud-native
+            elasticsearch-fluentd-kibana
+            istio
+            kured
+            prometheus-grafana
         services
             simple-service
-                routing
                 canary
                 stable
 ```

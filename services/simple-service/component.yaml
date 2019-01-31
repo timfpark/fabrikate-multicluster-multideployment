@@ -1,9 +1,7 @@
 name: "simple-service"
 generator: "helm"
-path: "./config-map-chart"
+path: "../service-chart"
 subcomponents:
-- name: "routing"
-  source: "./routing"
 - name: "canary"
   source: "./canary"
 - name: "stable"

@@ -1,2 +1,9 @@
 config:
-  
+  serviceName: "simple-service"
+subcomponents:
+  canary:
+    config:
+      serviceName: "simple-service"
+  stable:
+    config:
+      serviceName: "simple-service"
