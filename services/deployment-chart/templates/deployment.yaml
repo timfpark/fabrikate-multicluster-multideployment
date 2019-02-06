@@ -30,9 +30,6 @@ spec:
         ports:
         - containerPort: 80
           protocol: TCP
-        env:
-        - name: STORAGE_ACCOUNT
-          valueFrom:
-            configMapKeyRef:
-              name: {{ .Values.serviceName }}-configmap
-              key: STORAGE_ACCOUNT
+        envFrom:
+          - configMapRef:
+               name: {{ .Values.serviceName }}-configmap
