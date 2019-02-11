@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.serviceName }}-configmap
+  namespace: "services"
+data:
+  STORAGE_ACCOUNT: {{ .Values.storageAccount }}
